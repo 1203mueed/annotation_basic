@@ -6,28 +6,54 @@ function Signup({ onSuccess }) {
   const [formData, setFormData] = useState({ name: '', email: '', password: '' });
   const [error, setError] = useState('');
 
-  const handleChange = e => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  // Debug: see form data changes
+  const handleChange = (e) => {
+    const newData = { ...formData, [e.target.name]: e.target.value };
+    console.log('[Signup] Updating formData:', newData);
+    setFormData(newData);
   };
-  
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log('[Signup] Form submitted!', formData);
     setError('');
     try {
-      await API.post('/auth/signup', formData);
+      const res = await API.post('/auth/signup', formData);
+      console.log('[Signup] Server response:', res.data);
       onSuccess();
     } catch (err) {
+      console.error('[Signup] Error:', err);
       setError(err.response?.data?.error || 'Signup failed.');
     }
   };
 
   return (
     <form className="signup-form" onSubmit={handleSubmit}>
-      {error && <div className="error">{error}</div>}
       <h2>Sign Up</h2>
-      <input name="name" placeholder="Name" value={formData.name} onChange={handleChange} required />
-      <input name="email" type="email" placeholder="Email" value={formData.email} onChange={handleChange} required />
-      <input name="password" type="password" placeholder="Password" value={formData.password} onChange={handleChange} required />
+      {error && <div className="error">{error}</div>}
+      <input
+        name="name"
+        placeholder="Name"
+        value={formData.name}
+        onChange={handleChange}
+        required
+      />
+      <input
+        name="email"
+        type="email"
+        placeholder="Email"
+        value={formData.email}
+        onChange={handleChange}
+        required
+      />
+      <input
+        name="password"
+        type="password"
+        placeholder="Password"
+        value={formData.password}
+        onChange={handleChange}
+        required
+      />
       <button type="submit">Sign Up</button>
     </form>
   );

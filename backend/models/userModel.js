@@ -1,5 +1,8 @@
 const pool = require('../config/db');
 
+// Debug: log queries if needed
+// e.g., console.log("Querying user by email", email);
+
 async function findUserByEmail(email) {
   const { rows } = await pool.query('SELECT * FROM users WHERE email = $1', [email]);
   return rows[0];
@@ -13,7 +16,14 @@ async function createUser(name, email, passwordHash, role_id = 2) {
   return rows[0];
 }
 
+// For fetching user details after login
+async function findUserById(id) {
+  const { rows } = await pool.query('SELECT * FROM users WHERE id = $1', [id]);
+  return rows[0];
+}
+
 module.exports = {
   findUserByEmail,
-  createUser
+  createUser,
+  findUserById
 };

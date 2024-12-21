@@ -1,0 +1,113 @@
+/* frontend/src/styles/ClientDashboard.css */
+
+body {
+  margin: 0;
+  font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  background: linear-gradient(120deg, #dde1e7, #f0f4f9);
+  min-height: 100vh;
+}
+
+/* Container for entire dashboard */
+.client-dashboard {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 30px;
+  box-sizing: border-box;
+}
+
+/* Header section: includes welcome message & user info */
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #ffffffcc;
+  padding: 15px 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+}
+
+.dashboard-header h2 {
+  margin: 0;
+  font-weight: 600;
+  color: #333;
+}
+
+.dashboard-user-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 14px;
+  color: #333;
+}
+
+.logout-button {
+  background: #ff4d4d;
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+
+.logout-button:hover {
+  background: #cc3b3b;
+}
+
+/* Main content area */
+.dashboard-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Each section (Requests, Projects) */
+.dashboard-section {
+  background: #ffffffcc;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+}
+
+.dashboard-section h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: #444;
+}
+
+/* Table styling */
+.table-wrapper {
+  overflow-x: auto;  /* Allows horizontal scroll on mobile */
+}
+
+.styled-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  min-width: 600px;  /* Force horizontal scroll if narrow viewport */
+}
+
+.styled-table th,
+.styled-table td {
+  text-align: left;
+  padding: 12px 15px;
+  border-bottom: 1px solid #e3e3e3;
+}
+
+.styled-table th {
+  background-color: #5563DE;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.styled-table tr:nth-of-type(even) {
+  background-color: #f9f9f9;
+}
+
+.styled-table tbody tr:hover {
+  background-color: #f1f1f1;
+  cursor: default;
+}

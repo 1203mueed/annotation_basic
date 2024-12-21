@@ -1,6 +1,3 @@
-/* frontend/src/styles/Signup.css */
-
-/* A nice full-screen gradient background */
 body {
   margin: 0;
   font-family: 'Helvetica Neue', Arial, sans-serif;
@@ -11,7 +8,6 @@ body {
   align-items: center;
 }
 
-/* Animation keyframes */
 @keyframes fadeInUp {
   0% {
     opacity: 0;

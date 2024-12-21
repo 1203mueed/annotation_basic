@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import SignupPage from './pages/SignupPage';
 import SigninPage from './pages/SigninPage';
-import DashboardPage from './pages/DashboardPage';
+import ClientDashboardPage from './pages/ClientDashboardPage';
 import ProtectedRoute from './components/ProtectedRoute';
 
 function App() {
@@ -11,15 +11,15 @@ function App() {
       <Routes>
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/signin" element={<SigninPage />} />
-        <Route 
+        <Route
           path="/dashboard"
           element={
             <ProtectedRoute>
-              <DashboardPage />
+              <ClientDashboardPage />
             </ProtectedRoute>
           }
         />
-        {/* Update the default route to go to the SigninPage instead of SignupPage */}
+        {/* Default route -> Signin */}
         <Route path="/" element={<SigninPage />} />
       </Routes>
     </Router>

@@ -7,6 +7,10 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// Debug log to confirm server started
+console.log('Initializing server.js...');
+
+// The prefix "/api/auth" merges with the endpoints inside authRoutes.js
 app.use('/api/auth', authRoutes);
 
 const PORT = process.env.PORT || 5000;
