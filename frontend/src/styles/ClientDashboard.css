@@ -1,50 +1,46 @@
 /* frontend/src/styles/ClientDashboard.css */
 
-body {
-  margin: 0;
-  font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;
-  background: linear-gradient(120deg, #dde1e7, #f0f4f9);
-  min-height: 100vh;
-}
-
-/* Container for entire dashboard */
-.client-dashboard {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px 30px;
+/* Reset / base styles */
+* {
   box-sizing: border-box;
 }
 
-/* Header section: includes welcome message & user info */
-.dashboard-header {
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  background: linear-gradient(to right, #F0F4F9, #FFFFFF);
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Top navbar spanning full width */
+.navbar {
+  width: 100%;
+  background-color: #5563DE;
+  color: #fff;
+  padding: 15px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #ffffffcc;
-  padding: 15px 20px;
-  border-radius: 8px;
-  margin-bottom: 20px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
 }
 
-.dashboard-header h2 {
+.navbar h2 {
   margin: 0;
-  font-weight: 600;
-  color: #333;
+  font-weight: 500;
 }
 
-.dashboard-user-info {
+.navbar .navbar-right {
   display: flex;
-  align-items: center;
   gap: 15px;
-  font-size: 14px;
-  color: #333;
+  align-items: center;
 }
 
+.request-annotation-button,
 .logout-button {
-  background: #ff4d4d;
-  color: #fff;
+  background: #fff;
+  color: #5563DE;
   border: none;
   padding: 10px 16px;
   border-radius: 4px;
@@ -53,41 +49,52 @@ body {
   transition: background 0.3s;
 }
 
+.request-annotation-button:hover,
 .logout-button:hover {
-  background: #cc3b3b;
+  background: #e7e7ff;
 }
 
-/* Main content area */
-.dashboard-content {
-  display: flex;
-  flex-direction: column;
+/* Main container for the dashboard content */
+.dashboard-main {
+  padding: 0 20px; /* Removed top padding */
+  margin-top: 0;   /* No margin at the top */
+}
+
+/* A "welcome" area or summary at the top, if desired */
+.dashboard-summary {
+  background: #ffffffaa;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+}
+
+/* Two-column layout for requests and projects on wide screens */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 20px;
+  margin-bottom: 20px; /* Slight spacing from bottom if needed */
 }
 
-/* Each section (Requests, Projects) */
+/* Each "card" with table data */
 .dashboard-section {
-  background: #ffffffcc;
+  background: #ffffffaa;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 12px rgba(0,0,0,0.1);
 }
 
-.dashboard-section h3 {
-  margin-top: 0;
-  margin-bottom: 15px;
-  color: #444;
-}
-
 /* Table styling */
 .table-wrapper {
-  overflow-x: auto;  /* Allows horizontal scroll on mobile */
+  overflow-x: auto; 
 }
 
 .styled-table {
   width: 100%;
   border-collapse: collapse;
   font-size: 14px;
-  min-width: 600px;  /* Force horizontal scroll if narrow viewport */
+  min-width: 600px;
 }
 
 .styled-table th,
